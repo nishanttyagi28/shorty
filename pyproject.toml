@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shorty"
+version = "0.1.0"
+description = "Small FastAPI URL shortener backed by SQLite"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Nishant Tyagi" }]
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+test = [
+    "httpx",
+    "pytest",
+]
+
+[project.scripts]
+shorty = "shorty.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
