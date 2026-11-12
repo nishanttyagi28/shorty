@@ -17,7 +17,12 @@ CREATE TABLE IF NOT EXISTS links (
 
 def db_path() -> str:
     """Return the configured database path (SHORTY_DB, default shorty.db)."""
-    return os.environ.get("SHORTY_DB", DEFAULT_DB)
+    env = os.environ.get("SHORTY_DB")
+    if env:
+        return env
+    if os.environ.get("VERCEL"):
+        return "/tmp/shorty.db"
+    return DEFAULT_DB
 
 
 def connect() -> sqlite3.Connection:
