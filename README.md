@@ -3,6 +3,9 @@
 Small URL shortener: FastAPI on top of a single SQLite file (plain `sqlite3`,
 no ORM). No auth, meant for running locally or behind something else.
 
+
+Live demo: https://shorty-taupe.vercel.app
+
 ## Install
 
 Needs Python 3.9+.
